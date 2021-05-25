@@ -2,7 +2,6 @@
 
 require_relative "bloodbath/version"
 
-module Bloodbath
+class Bloodbath
   class Error < StandardError; end
-  # Your code goes here...
 end

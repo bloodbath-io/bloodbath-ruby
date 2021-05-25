@@ -1,11 +1,10 @@
 # frozen_string_literal: true
-
 RSpec.describe Bloodbath do
-  it "has a version number" do
-    expect(Bloodbath::VERSION).not_to be nil
-  end
+  it { expect(Bloodbath::VERSION).not_to be nil }
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  describe '#api_key' do
+    subject { described_class.api_key }
+    let(:api_key) { 'valid-api-key'}
+    it { expect { described_class.api_key = api_key }.to change { described_class.api_key }.to (api_key) }
   end
 end
