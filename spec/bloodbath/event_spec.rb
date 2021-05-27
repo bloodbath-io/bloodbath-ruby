@@ -1,10 +1,7 @@
 # frozen_string_literal: true
-require 'date'
-
 RSpec.describe Bloodbath::Event, vcr: true do
-  before do
-    Bloodbath.api_key = 'TONnZlNFWYG6CZ36v4tAwfA4UKRVX3_Ou8LNRmbkSFspd4xBl3oVaKkr_UfsAL2bgg_k39ENVzY1F90urvsBVA=='
-  end
+  let(:valid_api_key) { 'TONnZlNFWYG6CZ36v4tAwfA4UKRVX3_Ou8LNRmbkSFspd4xBl3oVaKkr_UfsAL2bgg_k39ENVzY1F90urvsBVA==' }
+  before { Bloodbath.api_key = valid_api_key }
 
   describe '#schedule' do
     let(:scheduled_for) { Time.now + 60 * 60 }
