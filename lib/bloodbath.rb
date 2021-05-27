@@ -7,7 +7,7 @@ require_relative "bloodbath/event"
 
 module Bloodbath
   class Error < StandardError; end
-  @config = Bloodbath::Configuration.setup
+  @config = Bloodbath::Configuration.new
 
   class << self
     extend Forwardable
