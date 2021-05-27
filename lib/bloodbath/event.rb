@@ -2,11 +2,11 @@ require 'net/http'
 require 'pry'
 require 'json'
 
-module Bloodbath
-  class RestAdapter
+module Bloodbath::Adapters
+  class Rest
     attr_reader :method, :endpoint, :body, :config
 
-    def initialize(method:, endpoint:, body:, config: Bloodbath.config)
+    def initialize(method:, endpoint:, body: nil, config: Bloodbath.config)
       @method = method
       @endpoint = endpoint
       @body = body
@@ -35,7 +35,14 @@ module Bloodbath
       request.body = body.to_json
 
       response = http.request(request)
-      JSON.parse(response.body, symbolize_names: true)
+      serialized_response_from response.body
+    end
+
+    def serialized_response_from(body)
+      return {} if body.nil?
+      JSON.parse(body, symbolize_names: true)
+    rescue JSON::ParserError
+      {}
     end
 
     def uri
@@ -63,33 +70,26 @@ module Bloodbath
   class Event
     class << self
       def schedule(args)
-        Bloodbath::RestAdapter.new(method: :post, endpoint: '/events', body: args).perform
+        adapter.new(method: :post, endpoint: '/events', body: args).perform
+      end
+
+      def list
+        adapter.new(method: :get, endpoint: '/events').perform
+      end
+
+      def find(id)
+        adapter.new(method: :get, endpoint: "/events/#{id}").perform
+      end
+
+      def cancel(id)
+        adapter.new(method: :delete, endpoint: "/events/#{id}").perform
+      end
+
+      private
+
+      def adapter
+        Bloodbath::Adapters::Rest
       end
     end
   end
 end
-
-
-# curl \
-#   -X POST -G \
-#   -H "Authorization: Bearer CA3knhSEFs8OWzO1_186q7KT-0agve-pUOpzx7UoMzPjiC3Wd-nsIAQcG8vCR-RytaSiToDXNIU_zkLFXBGE1w==" \
-#   -H "Content-Type: application/json" \
-#   http://localhost:4000/rest/events/ \
-#   -d scheduled_for=2021-05-26T00:04:34Z \
-#   -d headers="{\"hello\":true}" \
-#   -d method="post" \
-#   -d body="{\"hello\":true}" \
-#   -d endpoint="https://random.fr"
-
-# curl \
-#   -X POST \
-#   -H "Authorization: Bearer CA3knhSEFs8OWzO1_186q7KT-0agve-pUOpzx7UoMzPjiC3Wd-nsIAQcG8vCR-RytaSiToDXNIU_zkLFXBGE1w==" \
-#   -H "Content-Type: application/json" \
-#   http://localhost:4000/rest/events/ \
-#   -d '{"headers":"value1", "key2":"value2"}'
-
-
-
-#   [debug] Processing with BloodbathWeb.EventController.create/2
-#   Parameters: %{"body" => "{\"hello\":true}", "endpoint" => "https://test.com", "headers" => "{\"hello\":true}", "method" => "post", "scheduled_for" => "2021-05-26T00:04:34Z"}
-#   Pipelines: [:rest, :rest_authenticated, :rest_authorized_owner]

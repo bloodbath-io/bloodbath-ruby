@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:4000/rest/events/da7fe5c3-0df0-48c9-b8cd-a1e3a6ef2d48
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer TONnZlNFWYG6CZ36v4tAwfA4UKRVX3_Ou8LNRmbkSFspd4xBl3oVaKkr_UfsAL2bgg_k39ENVzY1F90urvsBVA==
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Length:
+      - '286'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 27 May 2021 22:09:33 GMT
+      Server:
+      - Cowboy
+      X-Request-Id:
+      - FoML5kGdrRGxZfYAABaB
+    body:
+      encoding: UTF-8
+      string: '{"data":{"body":"testing","dispatched_at":null,"endpoint":"http://localhost:4000/ping","enqueued_at":null,"headers":"{\"hello\":
+        \"very-true|\"}","id":"da7fe5c3-0df0-48c9-b8cd-a1e3a6ef2d48","locked_at":null,"method":"post","origin":"graphql_api","scheduled_for":"2030-05-25T22:27:23Z"}}'
+  recorded_at: Thu, 27 May 2021 22:09:34 GMT
+recorded_with: VCR 6.0.0
