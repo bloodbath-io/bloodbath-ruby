@@ -14,6 +14,6 @@ module Bloodbath
 
     attr_reader :config
     def_delegators :@config, :api_key, :api_key=
-    def_delegators :@config, :api_base
+    def_delegators :@config, :api_base, :api_base=
   end
 end
