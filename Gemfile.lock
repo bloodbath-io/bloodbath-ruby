@@ -50,6 +50,13 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.5.0)
       parser (>= 3.0.1.1)
+    rubocop-rake (0.5.1)
+      rubocop
+    rubocop-rspec (2.3.0)
+      rubocop (~> 1.0)
+      rubocop-ast (>= 1.1.0)
+    rubocop-shopify (2.1.0)
+      rubocop (~> 1.13)
     ruby-progressbar (1.11.0)
     unicode-display_width (2.0.0)
     vcr (6.0.0)
@@ -67,6 +74,9 @@ DEPENDENCIES
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop (~> 1.7)
+  rubocop-rake (~> 0.5.1)
+  rubocop-rspec (~> 2.3)
+  rubocop-shopify (~> 2.1.0)
   vcr (~> 6.0.0)
   webmock (~> 3.13.0)
 

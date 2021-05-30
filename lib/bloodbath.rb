@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'forwardable'
+
+require "forwardable"
 
 require_relative "bloodbath/version"
 require_relative "bloodbath/configuration"
@@ -13,6 +14,7 @@ module Bloodbath
     extend Forwardable
 
     attr_reader :config
+
     def_delegators :@config, :api_key, :api_key=
     def_delegators :@config, :api_base, :api_base=
   end
