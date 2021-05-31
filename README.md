@@ -34,8 +34,6 @@ Bloodbath.api_key = 'NTI6PASMD9BQhYtRh...'
 ```ruby
 # schedule an event
 Bloodbath::Event.schedule(
-  # in 1 hour and 5 seconds
-  # note: if you're using Rails, prefer 1.hours.from_now for readability
   scheduled_for: Time.now + 60 * 60 + 5,
   headers: {},
   method: :post,
@@ -52,6 +50,8 @@ Bloodbath::Event.find('b7ccff...')
 # cancel an event
 Bloodbath::Event.cancel('b7ccff...')
 ```
+
+For more documentation about how to use Bloodbath, don't hesitate to check [Bloodbath Docs](https://docs.bloodbath.io/).
 
 ## Development
 
