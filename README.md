@@ -25,14 +25,18 @@ Or install it yourself as:
 ### Configuration
 The library needs to be configured with your account's API key which is available in your [Bloodbath Dashboard](https://app.bloodbath.io/). Set `Bloodbath.api_key` to its value:
 
+```ruby
 require 'bloodbath'
 Bloodbath.api_key = 'NTI6PASMD9BQhYtRh...'
+```
 
 #### Events
 ```ruby
 # schedule an event
 Bloodbath::Event.schedule(
-  scheduled_for: Time.now + 60 * 60 + 5, # in 1 hour and 5 seconds
+  # in 1 hour and 5 seconds
+  # note: if you're using Rails, prefer 1.hours.from_now for readability
+  scheduled_for: Time.now + 60 * 60 + 5,
   headers: {},
   method: :post,
   body: "some body content",
