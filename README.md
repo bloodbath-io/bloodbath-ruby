@@ -1,3 +1,5 @@
+![workflow](https://github.com/bloodbath-io/bloodbath-ruby/actions/workflows/main.yml/badge.svg)
+
 # Bloodbath Ruby Library
 
 The Bloodbath Ruby library provides convenient access to the Bloodbath API from applications written in the Ruby language.
