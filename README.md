@@ -22,7 +22,32 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Configuration
+The library needs to be configured with your account's API key which is available in your [Bloodbath Dashboard](https://app.bloodbath.io/). Set `Bloodbath.api_key` to its value:
+
+require 'bloodbath'
+Bloodbath.api_key = 'NTI6PASMD9BQhYtRh...'
+
+#### Events
+```ruby
+# schedule an event
+Bloodbath::Event.schedule(
+  scheduled_for: Time.now + 60 * 60 + 5, # in 1 hour and 5 seconds
+  headers: {},
+  method: :post,
+  body: "some body content",
+  endpoint: 'https://api.acme.com/path'
+)
+
+# list events
+Bloodbath::Event.list()
+
+# find an event
+Bloodbath::Event.find('b7ccff...')
+
+# cancel an event
+Bloodbath::Event.cancel('b7ccff...')
+```
 
 ## Development
 
@@ -32,8 +57,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bloodbath. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/bloodbath/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/bloodbath-io/bloodbath-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/bloodbath-io/bloodbath-ruby/blob/master/CODE_OF_CONDUCT.md).
 
 ## Code of Conduct
 
-Everyone interacting in the Bloodbath project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/bloodbath/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Bloodbath project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/bloodbath-io/bloodbath-ruby/blob/master/CODE_OF_CONDUCT.md).
