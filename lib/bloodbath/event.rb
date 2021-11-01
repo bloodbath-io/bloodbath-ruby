@@ -43,9 +43,11 @@ module Bloodbath
         raise Bloodbath::Error, "Please set your API key through Bloodbath.api_key = 'my-api-key'" unless config.api_key
       end
 
-      def asynchronously
+      def asynchronously(&block)
+        thread = Thread.new { yield }
         # TODO: refactor this to be more readable
-        @@threads << Thread.new { synchronous_call_with_response }
+        # maybe add it into a module instead and use "threading { }" in there
+        @@threads << thread
 
         if @@threads.size >= 10
           @@count += 10
@@ -53,6 +55,8 @@ module Bloodbath
             @@threads = []
           end
         end
+
+        thread
       end
 
       def synchronous_call_with_response
@@ -103,8 +107,9 @@ end
 module Bloodbath
   class Event
     class << self
-      def method_missing(method, args, &block)
-        self.new(arguments).send(method, *arguments, &block)
+      def method_missing(method, args = {}, &block)
+        return self.new.send(method, &block) if args == {}
+        self.new.send(method, args, &block)
       end
     end
 

@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:4000/rest/events
+    body:
+      encoding: UTF-8
+      string: '{"scheduled_for":"2021-11-02 01:12:00 +0100","method":"post","headers":{"Random-Header":"Something"},"body":"Random
+        body","endpoint":"https://api.fake-site.com"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer 0u9dmuz_uxQf4bD_rYzltCWA8hrUjvxQQ-ILWFppj7sfSfkjoNqbCX_oqtJ1ska3GaYACb25Ef-uYcbITTYJbA==
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Length:
+      - '292'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 01 Nov 2021 23:11:59 GMT
+      Location:
+      - "/rest/events/a350e6b1-7beb-4948-80ec-d1fbeaaf0add"
+      Server:
+      - Cowboy
+      X-Request-Id:
+      - FrOPACKU-RkX8pIAAADE
+    body:
+      encoding: UTF-8
+      string: '{"data":{"body":"Random body","dispatched_at":null,"endpoint":"https://api.fake-site.com","enqueued_at":null,"headers":"{\"Random-Header\":\"Something\"}","id":"a350e6b1-7beb-4948-80ec-d1fbeaaf0add","locked_at":null,"method":"post","origin":"rest_api","scheduled_for":"2021-11-02T00:12:00Z"}}'
+  recorded_at: Mon, 01 Nov 2021 23:12:00 GMT
+recorded_with: VCR 6.0.0

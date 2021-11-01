@@ -39,4 +39,195 @@ http_interactions:
       string: '{"data":{"body":"testing","dispatched_at":null,"endpoint":"http://localhost:4000/ping","enqueued_at":null,"headers":"{\"hello\":
         \"very-true|\"}","id":"da7fe5c3-0df0-48c9-b8cd-a1e3a6ef2d48","locked_at":null,"method":"post","origin":"graphql_api","scheduled_for":"2030-05-25T22:27:23Z"}}'
   recorded_at: Thu, 27 May 2021 22:09:34 GMT
+- request:
+    method: get
+    uri: http://localhost:4000/rest/events/da7fe5c3-0df0-48c9-b8cd-a1e3a6ef2d48
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer RIi9yhM42RDgEXLiVbO3z-ncbS2GvI3fcmwYL4f2Zf0JpyUUKCAx8M6glyHnLmyN8Kkbul9VoAai6798ssu4aw==
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Length:
+      - '157'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 01 Nov 2021 23:05:12 GMT
+      Server:
+      - Cowboy
+      X-Request-Id:
+      - FrOOoTPdOUhzZd4AAAAF
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Your API key isn''t valid. Please read https://bloodbath.notion.site/Acquire-your-API-Key-3b4adbbcc7f948d0a5c52d165a963ae4
+        for more information"]}'
+  recorded_at: Mon, 01 Nov 2021 23:05:12 GMT
+- request:
+    method: get
+    uri: http://localhost:4000/rest/events/da7fe5c3-0df0-48c9-b8cd-a1e3a6ef2d48
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer 0u9dmuz_uxQf4bD_rYzltCWA8hrUjvxQQ-ILWFppj7sfSfkjoNqbCX_oqtJ1ska3GaYACb25Ef-uYcbITTYJbA==
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 01 Nov 2021 23:08:31 GMT
+      Server:
+      - Cowboy
+      X-Request-Id:
+      - FrOOz6TitlbF1NkAAAEG
+    body:
+      encoding: UTF-8
+      string: '{"errors":["Not found"]}'
+  recorded_at: Mon, 01 Nov 2021 23:08:32 GMT
+- request:
+    method: get
+    uri: http://localhost:4000/rest/events/02325496-8df6-449c-ab3e-a53de327ac84
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer 0u9dmuz_uxQf4bD_rYzltCWA8hrUjvxQQ-ILWFppj7sfSfkjoNqbCX_oqtJ1ska3GaYACb25Ef-uYcbITTYJbA==
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Length:
+      - '261'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 01 Nov 2021 23:09:28 GMT
+      Server:
+      - Cowboy
+      X-Request-Id:
+      - FrOO3Ntqu4gp6WIAAACI
+    body:
+      encoding: UTF-8
+      string: '{"data":{"body":null,"dispatched_at":null,"endpoint":"https://dummy.bloodbath.io/lets-try","enqueued_at":null,"headers":"{}","id":"02325496-8df6-449c-ab3e-a53de327ac84","locked_at":null,"method":"get","origin":"rest_api","scheduled_for":"2022-10-31T23:39:36Z"}}'
+  recorded_at: Mon, 01 Nov 2021 23:09:28 GMT
+- request:
+    method: get
+    uri: http://localhost:4000/rest/events/02fd4aa1-9574-4481-8d23-765a0662abf2
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer 0u9dmuz_uxQf4bD_rYzltCWA8hrUjvxQQ-ILWFppj7sfSfkjoNqbCX_oqtJ1ska3GaYACb25Ef-uYcbITTYJbA==
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Length:
+      - '261'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 01 Nov 2021 23:10:09 GMT
+      Server:
+      - Cowboy
+      X-Request-Id:
+      - FrOO5oYYzqPpE5oAAAEI
+    body:
+      encoding: UTF-8
+      string: '{"data":{"body":null,"dispatched_at":null,"endpoint":"https://dummy.bloodbath.io/lets-try","enqueued_at":null,"headers":"{}","id":"02fd4aa1-9574-4481-8d23-765a0662abf2","locked_at":null,"method":"get","origin":"rest_api","scheduled_for":"2022-10-31T23:39:36Z"}}'
+  recorded_at: Mon, 01 Nov 2021 23:10:10 GMT
+- request:
+    method: get
+    uri: http://localhost:4000/rest/events/03672ed3-532f-41b7-986f-35d380b1ce6b
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer 0u9dmuz_uxQf4bD_rYzltCWA8hrUjvxQQ-ILWFppj7sfSfkjoNqbCX_oqtJ1ska3GaYACb25Ef-uYcbITTYJbA==
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Length:
+      - '261'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 01 Nov 2021 23:10:44 GMT
+      Server:
+      - Cowboy
+      X-Request-Id:
+      - FrOO7q2KwTOCI94AAAAD
+    body:
+      encoding: UTF-8
+      string: '{"data":{"body":null,"dispatched_at":null,"endpoint":"https://dummy.bloodbath.io/lets-try","enqueued_at":null,"headers":"{}","id":"03672ed3-532f-41b7-986f-35d380b1ce6b","locked_at":null,"method":"get","origin":"rest_api","scheduled_for":"2022-10-31T22:30:00Z"}}'
+  recorded_at: Mon, 01 Nov 2021 23:10:45 GMT
 recorded_with: VCR 6.0.0
