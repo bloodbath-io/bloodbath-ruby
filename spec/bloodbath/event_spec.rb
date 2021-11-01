@@ -13,15 +13,15 @@ RSpec.describe(Bloodbath::Event, vcr: true) do
     let(:headers) { { 'Random-Header': "Something" } }
     let(:body) { "Random body" }
     let(:endpoint) { "https://api.fake-site.com" }
-    let(:params) {
+    let(:params) do
       {
         scheduled_for: scheduled_for,
         method: method,
         headers: headers,
         body: body,
-        endpoint: endpoint
+        endpoint: endpoint,
       }
-    }
+    end
 
     subject { described_class.schedule(params) }
 

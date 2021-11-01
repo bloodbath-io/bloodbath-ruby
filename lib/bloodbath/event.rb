@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# rubocop:disable Style/ClassVars
 require "net/http"
 require "pry"
 require "json"
@@ -36,14 +37,13 @@ module Bloodbath
         end
       end
 
-
       private
 
       def check_api_key
         raise Bloodbath::Error, "Please set your API key through Bloodbath.api_key = 'my-api-key'" unless config.api_key
       end
 
-      def asynchronously(&block)
+      def asynchronously
         thread = Thread.new { yield }
         # TODO: refactor this to be more readable
         # maybe add it into a module instead and use "threading { }" in there
@@ -107,9 +107,13 @@ end
 module Bloodbath
   class Event
     class << self
-      def method_missing(method, args = {}, &block)
-        return self.new.send(method, &block) if args == {}
-        self.new.send(method, args, &block)
+      def method_missing(method_name, args = {}, &block)
+        return new.send(method_name, &block) if args == {}
+        new.send(method_name, args, &block)
+      end
+
+      def respond_to_missing?(method_name, include_private = false)
+        super
       end
     end
 
@@ -117,7 +121,7 @@ module Bloodbath
 
     def initialize(wait_for_response: true)
       @options = {
-        wait_for_response: wait_for_response
+        wait_for_response: wait_for_response,
       }
     end
 
