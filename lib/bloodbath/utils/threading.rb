@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+# rubocop:disable Style/ClassVars
 module Bloodbath
   module Utils
     module Threading
-      MAX_ACTIVE_THREADS = 10.freeze
+      MAX_ACTIVE_THREADS = 10
       @@threads = []
       @@count = 0
 
@@ -18,7 +20,7 @@ module Bloodbath
         join_all_threads
       end
 
-      def threading(&block)
+      def threading
         thread = Thread.new { yield }
         to_active_threads(thread)
 
@@ -26,7 +28,7 @@ module Bloodbath
         thread
       end
 
-    private
+      private
 
       def to_active_threads(thread)
         @@threads << thread

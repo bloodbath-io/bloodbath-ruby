@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# rubocop:disable Style/ClassVars
 require "net/http"
 require "pry"
 require "json"
