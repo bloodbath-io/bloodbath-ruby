@@ -4,20 +4,14 @@ require "net/http"
 require "pry"
 require "json"
 
+require_relative "utils/threading"
+
 module Bloodbath
   module Adapters
     class Rest
-      @@threads = []
-      @@count = 0
+      include Bloodbath::Utils::Threading
 
       attr_reader :method, :endpoint, :body, :options, :config
-
-      at_exit do
-        # TODO: abstract into a method or something
-        @@threads.each(&:join).tap do
-          @@threads = []
-        end
-      end
 
       def initialize(method:, endpoint:, body: nil, options:, config: Bloodbath.config)
         @method = method
@@ -44,19 +38,7 @@ module Bloodbath
       end
 
       def asynchronously
-        thread = Thread.new { yield }
-        # TODO: refactor this to be more readable
-        # maybe add it into a module instead and use "threading { }" in there
-        @@threads << thread
-
-        if @@threads.size >= 10
-          @@count += 10
-          @@threads.each(&:join).tap do
-            @@threads = []
-          end
-        end
-
-        thread
+        threading { yield }
       end
 
       def synchronous_call_with_response
