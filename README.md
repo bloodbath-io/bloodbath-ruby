@@ -53,6 +53,23 @@ Bloodbath::Event.cancel('b7ccff...')
 
 For more documentation about how to use Bloodbath, don't hesitate to check [Bloodbath Docs](https://docs.bloodbath.io).
 
+## Advanced usage
+### Multi-threads
+
+If you want to schedule a lot of events at once, waiting for the response might be too slow, that's why we developped a multi-thread scheduling option for the Ruby library.
+
+```ruby
+Bloodbath::Event.new(wait_for_response: false).schedule(
+  scheduled_for: Time.now + 60 * 60 + 5,
+  headers: {},
+  method: :post,
+  body: "some body content",
+  endpoint: 'https://api.acme.com/path'
+)
+```
+
+With this option, it'll schedule your events ~10 times faster, but you won't be able to receive the response directly. Instead, it'll return the spawned threads.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
