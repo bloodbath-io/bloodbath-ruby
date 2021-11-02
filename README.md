@@ -1,4 +1,8 @@
 ![workflow](https://github.com/bloodbath-io/bloodbath-ruby/actions/workflows/main.yml/badge.svg)
+![website](https://img.shields.io/website.svg?down_color=red&down_message=down&up_color=purple&up_message=up&url=http%3A%2F%2Fbloodbath.io)
+[![GitHub release](https://img.shields.io/github/release/bloodbath-io/bloodbath-ruby.svg)](https://github.com/bloodbath-io/bloodbath-ruby/releases/)
+![](https://ruby-gem-downloads-badge.herokuapp.com/bloodbath?type=total)
+
 
 # Bloodbath Ruby Library
 
