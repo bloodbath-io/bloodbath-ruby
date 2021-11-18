@@ -17,7 +17,7 @@ module Bloodbath
       end
 
       at_exit do
-        Bloodbath::Utils::Verbose.capture 'result of threads (exit mode)' do
+        Bloodbath::Utils::Verbose.capture("result of threads (exit mode)") do
           Utils::Threading.join_all_threads
         end
       end
@@ -27,7 +27,7 @@ module Bloodbath
           to_active_threads(thread)
 
           if active_threads.size >= MAX_ACTIVE_THREADS
-            Bloodbath::Utils::Verbose.capture 'result of threads (reached limit)' do
+            Bloodbath::Utils::Verbose.capture("result of threads (reached limit)") do
               Utils::Threading.join_all_threads
             end
           end

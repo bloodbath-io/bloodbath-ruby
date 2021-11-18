@@ -103,7 +103,7 @@ module Bloodbath
 
     def initialize(wait_for_response: true)
       @options = {
-        wait_for_response: wait_for_response
+        wait_for_response: wait_for_response,
       }
     end
 

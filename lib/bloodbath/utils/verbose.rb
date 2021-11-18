@@ -1,6 +1,5 @@
 
 # frozen_string_literal: true
-# rubocop:disable Style/ClassVars
 module Bloodbath
   module Utils
     class Verbose
@@ -8,17 +7,17 @@ module Bloodbath
         COLORS = {
           red: 31,
           green: 32,
-          blue: 34
+          blue: 34,
         }.freeze
 
-        def capture(label, &block)
+        def capture(label)
           result = yield
           return puts """
           #{screen("[VERBOSE]")} #{screen("#{label}:", color: :blue)} #{screen(result, color: :red)}
           """ if verbose?
         end
 
-      private
+        private
 
         def verbose?
           Bloodbath.config.verbose
