@@ -51,6 +51,8 @@ module Bloodbath
 
         response = http.request(request)
         serialized_response_from(response.body)
+      rescue Net::ReadTimeout, SocketError
+        raise Bloodbath::Error, "Bloodbath API is unavailable. Please check that your Internet connection is active."
       end
 
       def serialized_response_from(body)
