@@ -74,6 +74,16 @@ Bloodbath::Event.new(wait_for_response: false).schedule(
 
 With this option, it'll schedule your events ~10 times faster, but you won't be able to receive the response directly. Instead, it'll return the spawned threads.
 
+### Verbose mode
+
+From time to time, things don't work the way you expect. You can switch on the verbose mode to see more data regarding your calls to Bloodbath.
+
+```ruby
+Bloodbath.verbose = true
+```
+
+For instance, when using `wait_for_response: false` it'll outputs the results of the threads being spawned.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

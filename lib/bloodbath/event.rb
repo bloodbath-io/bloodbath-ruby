@@ -4,6 +4,7 @@ require "pry"
 require "json"
 
 require_relative "utils/threading"
+require_relative "utils/verbose"
 
 module Bloodbath
   module Adapters
@@ -102,7 +103,7 @@ module Bloodbath
 
     def initialize(wait_for_response: true)
       @options = {
-        wait_for_response: wait_for_response,
+        wait_for_response: wait_for_response
       }
     end
 

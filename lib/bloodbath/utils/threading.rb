@@ -12,20 +12,26 @@ module Bloodbath
           @@threads.each(&:join).tap do
             @@count += @@threads.size
             @@threads = []
-          end
+          end.map(&:value)
         end
       end
 
       at_exit do
-        join_all_threads
+        Bloodbath::Utils::Verbose.capture 'result of threads (exit mode)' do
+          Utils::Threading.join_all_threads
+        end
       end
 
       def threading
-        thread = Thread.new { yield }
-        to_active_threads(thread)
+        Thread.new { yield }.tap do |thread|
+          to_active_threads(thread)
 
-        Utils::Threading.join_all_threads if active_threads.size >= MAX_ACTIVE_THREADS
-        thread
+          if active_threads.size >= MAX_ACTIVE_THREADS
+            Bloodbath::Utils::Verbose.capture 'result of threads (reached limit)' do
+              Utils::Threading.join_all_threads
+            end
+          end
+        end
       end
 
       private
