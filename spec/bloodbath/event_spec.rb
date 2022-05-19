@@ -10,7 +10,7 @@ RSpec.describe(Bloodbath::Event, vcr: true) do
   describe ".schedule" do
     let(:scheduled_for) { Time.now + 60 * 60 }
     let(:method) { :post }
-    let(:headers) { { 'Random-Header': "Something" } }
+    let(:headers) { {"Random-Header": "Something"} }
     let(:body) { "Random body" }
     let(:endpoint) { "https://api.fake-site.com" }
     let(:params) do
@@ -19,7 +19,7 @@ RSpec.describe(Bloodbath::Event, vcr: true) do
         method: method,
         headers: headers,
         body: body,
-        endpoint: endpoint,
+        endpoint: endpoint
       }
     end
 
