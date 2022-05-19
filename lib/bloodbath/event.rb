@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "net/http"
 require "pry"
 require "json"
@@ -13,7 +14,7 @@ module Bloodbath
 
       attr_reader :method, :endpoint, :body, :options, :config
 
-      def initialize(method:, endpoint:, body: nil, options:, config: Bloodbath.config)
+      def initialize(method:, endpoint:, options:, body: nil, config: Bloodbath.config)
         @method = method
         @endpoint = endpoint
         @body = body
@@ -105,7 +106,7 @@ module Bloodbath
 
     def initialize(wait_for_response: true)
       @options = {
-        wait_for_response: wait_for_response,
+        wait_for_response: wait_for_response
       }
     end
 

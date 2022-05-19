@@ -3,7 +3,6 @@
 [![GitHub release](https://img.shields.io/github/release/bloodbath-io/bloodbath-ruby.svg)](https://github.com/bloodbath-io/bloodbath-ruby/releases/)
 ![](https://ruby-gem-downloads-badge.herokuapp.com/bloodbath?type=total)
 
-
 # Bloodbath Ruby Library
 
 The Bloodbath Ruby library provides convenient access to the Bloodbath API from applications written in the Ruby language.
@@ -27,6 +26,7 @@ Or install it yourself as:
 ## Usage
 
 ### Configuration
+
 The library needs to be configured with your account's API key which is available in your [Bloodbath Dashboard](https://app.bloodbath.io/). Set `Bloodbath.api_key` to its value:
 
 ```ruby
@@ -35,6 +35,7 @@ Bloodbath.api_key = 'NTI6PASMD9BQhYtRh...'
 ```
 
 #### Events
+
 ```ruby
 # schedule an event
 Bloodbath::Event.schedule(
@@ -58,6 +59,7 @@ Bloodbath::Event.cancel('b7ccff...')
 For more documentation about how to use Bloodbath, don't hesitate to check [Bloodbath Docs](https://docs.bloodbath.io).
 
 ## Advanced usage
+
 ### Multi-threads
 
 If you want to schedule a lot of events at once, waiting for the response might be too slow, that's why we developped a multi-thread scheduling option for the Ruby library.
@@ -93,6 +95,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/bloodbath-io/bloodbath-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/bloodbath-io/bloodbath-ruby/blob/master/CODE_OF_CONDUCT.md).
+
+**IMPORTANT:** This project uses [Standard](https://github.com/testdouble/standard) for formatting Ruby code. Please make sure to run `standardrb` before submitting pull requests.
 
 ## Code of Conduct
 
