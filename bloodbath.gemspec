@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
 
   spec.homepage = "https://bloodbath.io"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
+  spec.post_install_message = "Thanks for installing Bloodbath! Have a good load testing. For more information please visit https://bloodbath.io"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
