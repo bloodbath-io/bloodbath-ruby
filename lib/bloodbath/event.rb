@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "net/http"
 require "pry"
 require "json"
@@ -37,8 +38,8 @@ module Bloodbath
         raise Bloodbath::Error, "Please set your API key through Bloodbath.api_key = 'my-api-key'" unless config.api_key
       end
 
-      def asynchronously
-        threading { yield }
+      def asynchronously(&block)
+        threading(&block)
       end
 
       def synchronous_call_with_response
@@ -93,6 +94,7 @@ module Bloodbath
     class << self
       def method_missing(method_name, args = {}, &block)
         return new.send(method_name, &block) if args == {}
+
         new.send(method_name, args, &block)
       end
 

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # rubocop:disable Style/ClassVars
 module Bloodbath
   module Utils
@@ -22,8 +23,8 @@ module Bloodbath
         end
       end
 
-      def threading
-        Thread.new { yield }.tap do |thread|
+      def threading(&block)
+        Thread.new(&block).tap do |thread|
           to_active_threads(thread)
 
           if active_threads.size >= MAX_ACTIVE_THREADS

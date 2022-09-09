@@ -1,5 +1,16 @@
 inherit_gem:
   rubocop-shopify: rubocop.yml
 
+require:
+  - rubocop-rake
+  - rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 3.0
+  NewCops: enable
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
